@@ -112,6 +112,26 @@ $r->post('/ex5/resposta', function () {
     return fatorial($valor1);
 });
 
+$r->get('/ex6/formulario', function () {
+    include ("ex6.html");
+});
+
+$r->post('/ex6/resposta', function () {
+    $A = $_POST['valor1'];
+    $B = $_POST['valor2'];
+
+    if ($A > $B) {
+        return "$B $A";
+    } else if ($A == $B) {
+        return "Números iguai: $A";
+    } else if ($B > $A){
+        return "$A $B";
+    }
+
+
+});
+
+
 #ROTAS
 
 $resultado = $r->handler();
