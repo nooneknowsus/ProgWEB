@@ -124,13 +124,23 @@ $r->post('/ex6/resposta', function () {
         return "$B $A";
     } else if ($A == $B) {
         return "Números iguai: $A";
-    } else if ($B > $A){
+    } else if ($B > $A) {
         return "$A $B";
     }
 
 
 });
 
+$r->get('/ex7/formulario', function () {
+    include ("ex7.html");
+});
+
+$r->post('/ex7/resposta', function () {
+    $valor1 = $_POST['valor1'];
+    $valorConvertido = $valor1 * 100;
+
+    return "{$valor1}m = {$valorConvertido}cm";
+});
 
 #ROTAS
 
