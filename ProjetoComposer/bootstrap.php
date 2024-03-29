@@ -47,6 +47,43 @@ $r->post('/ex1/resposta', function () {
 
 });
 
+$r->get('/ex2/formulario', function () {
+    include ("ex2.html");
+});
+
+$r->post('/ex2/resposta', function () {
+
+    function encontrarMenor($numeros) {
+        $menor = $numeros[0];
+        $posicao = 0;
+        $tamanho = count($numeros);
+
+        for ($i = 1; $i < $tamanho; $i++) {
+            if ($numeros[$i] < $menor) {
+                $menor = $numeros[$i];
+                $posicao = $i;
+            }
+        }
+
+        return array("valor" => $menor, "posicao" => $posicao);
+    }
+
+    $numeros = array(
+        $_POST['valor1'],
+        $_POST['valor2'],
+        $_POST['valor3'],
+        $_POST['valor4'],
+        $_POST['valor5'],
+        $_POST['valor6'],
+        $_POST['valor7']
+    );
+
+    $resultado = encontrarMenor($numeros);
+    echo "Menor valor: " . $resultado["valor"] . "<br>";
+    echo "Posição do menor valor na sequência de entrada: " . ($resultado["posicao"] + 1) . "<br>";
+});
+
+
 
 $r->get('/ex3/formulario', function () {
     include ("ex3.html");
