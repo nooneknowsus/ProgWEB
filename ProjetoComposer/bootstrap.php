@@ -179,6 +179,26 @@ $r->post('/ex7/resposta', function () {
     return "{$valor1}m = {$valorConvertido}cm";
 });
 
+
+$r->get('/ex8/formulario', function () {
+    include ("ex8.html");
+});
+
+$r->post('/ex8/resposta', function () {
+    $valor1 = $_POST['valor1'];
+
+    $litros = $valor1 / 3;
+
+    $latas = ceil($litros / 18);
+
+    $valorTotal = $latas * 80;
+
+    echo "<p>Latas de tinta necessárias: $latas</p>";
+    echo "<p>Valor Total: R$ " . number_format($valorTotal, 2, ',', '.') . "</p>";
+
+});
+
+
 #ROTAS
 
 $resultado = $r->handler();
