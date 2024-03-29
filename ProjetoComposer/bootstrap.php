@@ -72,7 +72,7 @@ $r->get('/ex4/formulario', function () {
 $r->post('/ex4/resposta', function () {
     $valor1 = $_POST['valor1'];
 
-    
+
     function tabuada($valor)
     {
         $i = 1;
@@ -86,6 +86,30 @@ $r->post('/ex4/resposta', function () {
 
     return tabuada($valor1);
 
+});
+
+$r->get('/ex5/formulario', function () {
+    include ("ex5.html");
+});
+
+$r->post('/ex5/resposta', function () {
+    $valor1 = $_POST['valor1'];
+
+    function fatorial($valor)
+    {
+
+        if ($valor == 0 || $valor == 1) {
+            return 1;
+        } else {
+            $resultado = 1;
+            for ($i = 2; $i <= $valor; $i++) {
+                $resultado = $resultado * $i;
+            }
+            return "$valor! = " . $resultado;
+        }
+    }
+
+    return fatorial($valor1);
 });
 
 #ROTAS
