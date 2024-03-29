@@ -198,6 +198,24 @@ $r->post('/ex8/resposta', function () {
 
 });
 
+$r->get('/ex9/formulario', function () {
+    include ("ex9.html");
+});
+
+$r->post('/ex9/resposta', function () {
+    $anoNascimento = $_POST['valor1'];
+    $ano_atual = date("Y");
+
+    $idade = $ano_atual - $anoNascimento;
+    $diasDeVida = $anoNascimento * 365;
+    $nextYear = 2025 - $anoNascimento;
+
+    echo "<p>Você tem $idade ano(s)</p>";
+    echo "<p>Você viveu em torno de $diasDeVida dias de vida.</p>";
+    echo "<p>Você terá $nextYear ano(s) em 2025</p>";
+
+
+});
 
 #ROTAS
 
