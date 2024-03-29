@@ -47,6 +47,26 @@ $r->post('/ex1/resposta', function(){
     
 } );
 
+
+$r->get('/ex3/formulario', function(){
+    include("ex3.html");
+} );
+
+$r->post('/ex3/resposta', function(){
+    $valor1 = $_POST['valor1'];
+    $valor2 = $_POST['valor2'];
+    
+    $soma = $valor1 + $valor2;
+
+    if ($valor1 == $valor2){
+        return "Os valores são iguais: " . $soma * 3;
+    } else {
+        return "$valor1 + $valor2 = " . $soma;
+    }
+    
+    
+} );
+
 #ROTAS
 
 $resultado = $r->handler();
