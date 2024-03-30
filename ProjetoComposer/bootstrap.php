@@ -53,7 +53,8 @@ $r->get('/ex2/formulario', function () {
 
 $r->post('/ex2/resposta', function () {
 
-    function encontrarMenor($numeros) {
+    function encontrarMenor($numeros)
+    {
         $menor = $numeros[0];
         $posicao = 0;
         $tamanho = count($numeros);
@@ -65,10 +66,10 @@ $r->post('/ex2/resposta', function () {
             }
         }
 
-        return array("valor" => $menor, "posicao" => $posicao);
+        return array ("valor" => $menor, "posicao" => $posicao);
     }
 
-    $numeros = array(
+    $numeros = array (
         $_POST['valor1'],
         $_POST['valor2'],
         $_POST['valor3'],
@@ -210,12 +211,39 @@ $r->post('/ex9/resposta', function () {
     $diasDeVida = $anoNascimento * 365;
     $nextYear = 2025 - $anoNascimento;
 
-    echo "<p>Você tem $idade ano(s)</p>";
-    echo "<p>Você viveu em torno de $diasDeVida dias de vida.</p>";
-    echo "<p>Você terá $nextYear ano(s) em 2025</p>";
+    echo "<p>A. Você tem $idade ano(s)</p>";
+    echo "<p>B. Você viveu em torno de $diasDeVida dias de vida.</p>";
+    echo "<p>C. Você terá $nextYear ano(s) em 2025</p>";
 
 
 });
+
+$r->get('/ex10/formulario', function () {
+    include ("ex10.html");
+});
+
+$r->post('/ex10/resposta', function () {
+    $peso = $_POST['valor1'];
+    $altura = $_POST['valor2'];
+
+    $imc = $peso / ($altura ** 2);
+    $imc_formatado = number_format($imc, 2);
+
+    echo"<p>Seu IMC: $imc_formatado</p>";
+
+    if ($imc < 18.5) {
+        return "Classificação: Magreza";
+    } else if ($imc >= 18.5 && $imc <= 24.9) {
+        return "Classificação: Normal";
+    } else if ($imc >= 25 && $imc <= 29.9) {
+        return "Classificação: Sobrepeso";
+    } else if ($imc >= 30 && $imc <= 39.9) {
+        return "Classificação: Obesidade Grau II";
+    } else {
+        return "Classificação: Obesidade Grave Grau III";
+    }
+});
+
 
 #ROTAS
 
