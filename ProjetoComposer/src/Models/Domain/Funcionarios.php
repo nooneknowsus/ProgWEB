@@ -2,7 +2,7 @@
 
 namespace Php\Primeiroprojeto\Models\Domain;
 
-class Curso{
+class Funcionarios{
 
     private $id;
     private $nome;
