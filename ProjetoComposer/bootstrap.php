@@ -244,17 +244,37 @@ $r->post('/ex10/resposta', function () {
     }
 });
 
+//Chamando o formulário para inserir categoria
+$r->get('/categoria/inserir',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@inserir');
+
+$r->post('/categoria/novo',
+    'Php\Primeiroprojeto\Controllers\CategoriaController@novo');
+    
+//Chamando o formulário para inserir Alunos
+$r->get('/alunos/inserir',
+    'Php\Primeiroprojeto\Controllers\AlunosController@inserir');
+
+$r->post('/alunos/novo',
+    'Php\Primeiroprojeto\Controllers\AlunosController@novo');
 
 #ROTAS
 
 $resultado = $r->handler();
-
-if (!$resultado) {
+ 
+if(!$resultado){
     http_response_code(404);
     echo "Página não encontrada!";
     die();
 }
-
-echo $resultado($r->getParams());
+ 
+if ($resultado instanceof Closure){
+    echo $resultado($r->getParams());
+} elseif (is_string($resultado)){
+    $resultado = explode("@", $resultado);
+    $controller = new $resultado[0];
+    $resultado = $resultado[1];
+    echo $controller->$resultado($r->getParams());
+}
 
 
