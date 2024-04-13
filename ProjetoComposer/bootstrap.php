@@ -272,6 +272,13 @@ $r->get('/funcionarios/inserir',
 $r->post('/funcionarios/novo',
     'Php\Primeiroprojeto\Controllers\FuncionariosController@novo');
 
+//Chamando o formulário para inserir Professores
+$r->get('/professores/inserir',
+    'Php\Primeiroprojeto\Controllers\ProfessorController@inserir');
+
+$r->post('/professores/novo',
+    'Php\Primeiroprojeto\Controllers\ProfessorController@novo');
+
 #ROTAS
 
 $resultado = $r->handler();
