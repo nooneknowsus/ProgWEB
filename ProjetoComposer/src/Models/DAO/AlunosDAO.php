@@ -24,13 +24,13 @@ class AlunosDAO{
         }
     }
 
-    public function alterar(Alunos $categoria){
+    public function alterar(Alunos $alunos){
         try{
             $sql = "UPDATE alunos SET nome = :nome, ra = :ra WHERE id = :id";
             $p = $this->conexao->getConexao()->prepare($sql);
-            $p->bindValue(":nome", $categoria->getNome());
-            $p->bindValue(":ra", $categoria->getRA());
-            $p->bindValue(":id", $categoria->getId());
+            $p->bindValue(":nome", $alunos->getNome());
+            $p->bindValue(":ra", $alunos->getRA());
+            $p->bindValue(":id", $alunos->getId());
             return $p->execute();
         }catch(\Exception $e){
             return 0;

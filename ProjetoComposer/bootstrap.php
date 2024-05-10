@@ -231,6 +231,26 @@ $r->get('/curso/inserir',
     'Php\Primeiroprojeto\Controllers\CursoController@inserir');
 $r->post('/curso/novo',
     'Php\Primeiroprojeto\Controllers\CursoController@novo');
+
+$r->get('/curso', 
+    'Php\Primeiroprojeto\Controllers\CursoController@index');
+
+$r->get('/curso/{acao}/{status}', 
+    'Php\Primeiroprojeto\Controllers\CursoController@index');
+
+$r->get('/curso/alterar/id/{id}',
+    'Php\Primeiroprojeto\Controllers\CursoController@alterar');
+
+$r->get('/curso/excluir/id/{id}',
+    'Php\Primeiroprojeto\Controllers\CursoController@excluir');
+
+$r->post('/curso/editar',
+    'Php\Primeiroprojeto\Controllers\CursoController@editar');
+
+$r->post('/curso/deletar',
+    'Php\Primeiroprojeto\Controllers\CursoController@deletar');
+
+
 //Chamando o formulário para inserir Funcionarios
 $r->get('/funcionarios/inserir',
     'Php\Primeiroprojeto\Controllers\FuncionariosController@inserir');

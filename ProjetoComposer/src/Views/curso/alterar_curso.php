@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Alterar Alunos</title>
+    <title>Alterar Cursos</title>
   </head>
   <body>
     <main class="container">
-        <h3>Alterar Alunos</h3>
-        <form action="/alunos/editar" method="post">
+        <h3>Alterar Cursos</h3>
+        <form action="/curso/editar" method="post">
             <input type="hidden" name="id" value="<?= $resultado["id"] ?>">
             <div class="row">
                 <div class="col-6">
@@ -20,9 +20,9 @@
 
                 <div class="row">
                 <div class="col-6">
-                    <label for="ra" class="form-label">RA:</label>
-                    <input type="text" name="ra" class="form-control" 
-                                value="<?= $resultado['ra'] ?>">
+                    <label for="duracao" class="form-label">Tempo Duração:</label>
+                    <input type="text" name="duracao" class="form-control" 
+                                value="<?= $resultado['tempo_duracao'] ?>">
                 </div>
             </div>
             

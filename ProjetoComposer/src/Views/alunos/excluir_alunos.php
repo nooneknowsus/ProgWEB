@@ -16,13 +16,13 @@
             <input type="hidden" name="id" value="<?= $resultado["id"] ?>">
             <div class="row">
                 <div class="col-6">
-                    <label for="nome" class="form-label">Descrição:</label>
+                    <label for="nome" class="form-label">Nome:</label>
                     <input type="text" disabled name="nome" class="form-control" value="<?= $resultado['nome'] ?>">
                 </div>
 
                 <div class="row">
                     <div class="col-6">
-                        <label for="ra" class="form-label">Descrição:</label>
+                        <label for="ra" class="form-label">RA:</label>
                         <input type="text" disabled name="ra" class="form-control" value="<?= $resultado['ra'] ?>">
                     </div>
 
