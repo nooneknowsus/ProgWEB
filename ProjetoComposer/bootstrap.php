@@ -254,7 +254,7 @@ $r->post('/curso/deletar',
 //Chamando o formulário para inserir Funcionarios
 $r->get('/funcionarios/inserir',
     'Php\Primeiroprojeto\Controllers\FuncionariosController@inserir');
-    
+
 $r->post('/funcionarios/novo',
     'Php\Primeiroprojeto\Controllers\FuncionariosController@novo');
 
@@ -278,10 +278,28 @@ $r->post('/funcionarios/deletar',
 
 //Chamando o formulário para inserir Professores
 $r->get('/professores/inserir',
-    'Php\Primeiroprojeto\Controllers\funcionarios@inserir');
+    'Php\Primeiroprojeto\Controllers\ProfessorController@inserir');
 
 $r->post('/professores/novo',
     'Php\Primeiroprojeto\Controllers\ProfessorController@novo');
+
+$r->get('/professores', 
+    'Php\Primeiroprojeto\Controllers\ProfessorController@index');
+
+$r->get('/professores/{acao}/{status}', 
+    'Php\Primeiroprojeto\Controllers\ProfessorController@index');
+
+$r->get('/professores/alterar/id/{id}',
+    'Php\Primeiroprojeto\Controllers\ProfessorController@alterar');
+
+$r->get('/professores/excluir/id/{id}',
+    'Php\Primeiroprojeto\Controllers\ProfessorController@excluir');
+
+$r->post('/professores/editar',
+    'Php\Primeiroprojeto\Controllers\ProfessorController@editar');
+
+$r->post('/professores/deletar',
+    'Php\Primeiroprojeto\Controllers\ProfessorController@deletar');
 
 #ROTAS
 

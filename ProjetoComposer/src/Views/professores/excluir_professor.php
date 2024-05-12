@@ -6,18 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Excluir Alunos</title>
-    <style>
-        body {
-            padding: 30px;
-        }
-    </style>
+    <title>Excluir Professores</title>
 </head>
 
 <body>
     <main class="container">
-        <h3>Excluir Alunos</h3>
-        <form action="/alunos/deletar" method="post">
+        <h3>Excluir Professores</h3>
+        <form action="/professores/deletar" method="post">
             <input type="hidden" name="id" value="<?= $resultado["id"] ?>">
             <div class="row">
                 <div class="col-6">
@@ -27,8 +22,8 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <label for="ra" class="form-label">RA:</label>
-                        <input type="text" disabled name="ra" class="form-control" value="<?= $resultado['ra'] ?>">
+                        <label for="graduacao" class="form-label">Graduação:</label>
+                        <input type="text" disabled name="graduacao" class="form-control" value="<?= $resultado['graduacao'] ?>">
                     </div>
 
                 </div>

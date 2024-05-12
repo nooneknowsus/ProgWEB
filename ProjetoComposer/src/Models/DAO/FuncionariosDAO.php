@@ -12,25 +12,25 @@ class FuncionariosDAO{
         $this->conexao = new Conexao();
     }
 
-    public function inserir(Funcionarios $Funcionarios){
+    public function inserir(Funcionarios $funcionarios){
         try{
             $sql = "INSERT INTO funcionarios (nome, cpf) VALUES (:nome, :cpf)";
             $p = $this->conexao->getConexao()->prepare($sql);
-            $p->bindValue(":nome", $Funcionarios->getNome());
-            $p->bindValue(":cpf", $Funcionarios->getCpf());
+            $p->bindValue(":nome", $funcionarios->getNome());
+            $p->bindValue(":cpf", $funcionarios->getCpf());
             return $p->execute();
         } catch(\Exception $e){
             return 0;
         }
     }
 
-    public function alterar(Funcionarios $Funcionarios){
+    public function alterar(Funcionarios $funcionarios){
         try{
-            $sql = "UPDATE Funcionarios SET nome = :nome, cpf = :cpf WHERE id = :id";
+            $sql = "UPDATE funcionarios SET nome = :nome, cpf = :cpf WHERE id = :id";
             $p = $this->conexao->getConexao()->prepare($sql);
-            $p->bindValue(":nome", $Funcionarios->getNome());
-            $p->bindValue(":cpf", $Funcionarios->getCpf());
-            $p->bindValue(":id", $Funcionarios->getId());
+            $p->bindValue(":nome", $funcionarios->getNome());
+            $p->bindValue(":cpf", $funcionarios->getCpf());
+            $p->bindValue(":id", $funcionarios->getId());
             return $p->execute();
         }catch(\Exception $e){
             return 0;
@@ -39,7 +39,7 @@ class FuncionariosDAO{
 
     public function excluir($id){
         try{
-            $sql = "DELETE FROM Funcionarios WHERE id = :id";
+            $sql = "DELETE FROM funcionarios WHERE id = :id";
             $p = $this->conexao->getConexao()->prepare($sql);
             $p->bindValue(":id", $id);
             return $p->execute();
@@ -50,7 +50,7 @@ class FuncionariosDAO{
 
     public function consultarTodos(){
         try{
-            $sql = "SELECT * FROM Funcionarios";
+            $sql = "SELECT * FROM funcionarios";
             return $this->conexao->getConexao()->query($sql);
         } catch(\Exception $e){
             return 0;
@@ -59,7 +59,7 @@ class FuncionariosDAO{
 
     public function consultar($id){
         try{
-            $sql = "SELECT * FROM Funcionarios WHERE id = :id";
+            $sql = "SELECT * FROM funcionarios WHERE id = :id";
             $p = $this->conexao->getConexao()->prepare($sql);
             $p->bindValue(":id", $id);
             $p->execute();

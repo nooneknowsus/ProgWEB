@@ -22,7 +22,7 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <label for="cpf" class="form-label">Tempo de CPF:</label>
+                        <label for="cpf" class="form-label">CPF:</label>
                         <input type="text" disabled name="cpf" class="form-control" value="<?= $resultado['cpf'] ?>">
                     </div>
 
